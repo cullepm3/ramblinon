@@ -1,0 +1,35 @@
+= form_for @user_team do |f|
+  -if @user_team.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user_team.errors.count, "error")} prohibited this user_team from being saved:"
+      %ul
+        - @user_team.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :year
+    = f.number_field :year
+  .field
+    = f.label :draft_position
+    = f.number_field :draft_position
+  
+  
+  .field
+    = f.label 'user 1'
+    %br
+    - first_user = (@user_team.user_ids.first ? @user_team.user_ids.first : 0)
+    - options_for_select= options_for_select(@users.collect {|user| [user.email, user.id ]}, first_user)
+    =select_tag('user_team[user_ids][]', options_for_select, {:include_blank => true })
+ 
+  .field
+    = f.label 'user 2'
+    %br
+    - second_user = (@user_team.user_ids.last ? @user_team.user_ids.last : 0)  
+    - options_for_select= options_for_select(@users.collect {|user| [user.email, user.id ]}, second_user)
+    =select_tag('user_team[user_ids][]', options_for_select, {:include_blank => true })
+    
+  .actions
+    = f.submit 'Save'    

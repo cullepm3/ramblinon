@@ -1,0 +1,33 @@
+- @user_teams.each do |user_team|
+  %br
+  %br
+  %span.nobreak
+    %h5.nobreak="#{user_team.name} | #{user_team.users.first.name} | #{(user_team.users.count > 1) ? user_team.users[1].name : ""}"
+  
+    = image_tag user_team.users.first.profile_image_url, width:"30px", height:"30px"
+  
+    - if user_team.users.count >1
+      = image_tag user_team.users[1].profile_image_url, width:"30px", height:"30px"
+    = "#{user_team.remaining} teams remaining"
+    = "#{user_team.pts} pts earned"
+    
+  %hr
+  %br
+  %table{width:"400"}
+    %tr
+      %th 
+      %th
+      - (1..6).each do |i|
+        %th= round(i)
+  
+    - teams= user_team.teams.sort{ |a,b| a.seed <=> b.seed}
+    - teams.each do |team|
+      %tr
+        %td
+          -eliminated= team.eliminated ? "eliminated" : ""
+        %td  
+          = team.seed    
+          %span{class:"#{eliminated}"}= link_to team.school, edit_team_path(team)
+        - (1..6).each do |i|
+          %td
+            = 'X' if team.wins >= i

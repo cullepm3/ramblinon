@@ -1,0 +1,14 @@
+%h3 West
+=render "bracket", :teams => @west if @west
+
+%h3 East
+=render "bracket", :teams => @east if @east
+
+%h3 South
+=render "bracket", :teams => @south if @south
+
+%h3 Midwest
+=render "bracket", :teams => @midwest if @midwest
+
+=render "bracket", :teams => @region if @region
+

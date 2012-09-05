@@ -1,0 +1,23 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @team.name
+%p
+  %b School:
+  = @team.school
+%p
+  %b Year:
+  = @team.year
+%p
+  %b Seed:
+  = @team.seed
+%p
+  %b Region:
+  = @team.region
+
+= link_to 'Edit', edit_team_path(@team)
+\|
+= link_to 'Back', teams_path
+\|
+= link_to 'Edit NExt', edit_team_path(Team.find(@team.id+1))

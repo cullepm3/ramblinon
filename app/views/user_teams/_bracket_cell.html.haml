@@ -1,0 +1,9 @@
+- if team
+  .team{:style=>"float:left"}= link_to "#{team.school } (#{team.seed})", edit_team_path(team)
+  %br
+  .clear
+  -dim= "25px"
+  =image_tag(team.user_team.users[0].profile_image_url, width:"#{dim}", height:"#{dim}")
+  =image_tag(team.user_team.users[1].profile_image_url, width:"#{dim}", height:"#{dim}")
+- else 
+  = ""

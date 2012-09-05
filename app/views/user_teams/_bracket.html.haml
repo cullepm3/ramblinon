@@ -1,0 +1,100 @@
+%table{:border => "1", :style=>"padding-left:5px;padding-right:5px;"}
+  %tr
+    %th= (defined? final) ? "Elite 8" : ""
+    %th= (defined? final) ? "Final Four" : "Easy 32"
+    %th= (defined? final) ? "Tits 2" : "Sweet 16"
+    %th= (defined? final) ? "Champ" : "Elite 8"
+         
+  %tr 
+    %td.center
+      =render "bracket_cell", :team => teams[0];
+    %td.center{:rowspan=>"2"}
+      =render "bracket_cell", :team => teams[16];
+    %td.center{:rowspan=>"4"}
+      =render "bracket_cell", :team => teams[24];
+    %td.center{:rowspan=>"8"}
+      =render "bracket_cell", :team => teams[28];
+            
+  %tr 
+    %td.center
+      =render "bracket_cell", :team => teams[1];
+
+  %tr
+    %td.center
+      =render "bracket_cell", :team => teams[2];
+    %td.center{:rowspan=>"2"}
+      =render "bracket_cell", :team => teams[17];
+
+  %tr
+    %td.center
+      =render "bracket_cell", :team => teams[3];
+
+  %tr
+    %td.center
+      =render "bracket_cell", :team => teams[4];
+    %td.center{:rowspan=>"2"}
+      =render "bracket_cell", :team => teams[18];
+    %td.center{:rowspan=>"4"}
+      =render "bracket_cell", :team => teams[25];
+
+  %tr 
+    %td.center
+      =render "bracket_cell", :team => teams[5];
+
+  %tr
+    %td.center
+      =render "bracket_cell", :team => teams[6];
+    %td.center{:rowspan=>"2"}
+      =render "bracket_cell", :team => teams[19];
+
+  %tr
+    %td.center
+      =render "bracket_cell", :team => teams[7];
+
+    //second 8  
+  - if !defined? final 
+    %tr 
+      %td.center
+        =render "bracket_cell", :team => teams[8];
+      %td.center{:rowspan=>"2"}
+        =render "bracket_cell", :team => teams[20];
+      %td.center{:rowspan=>"4"}
+        =render "bracket_cell", :team => teams[26];
+      %td.center{:rowspan=>"8"}
+        =render "bracket_cell", :team => teams[29];
+
+    %tr 
+      %td.center
+        =render "bracket_cell", :team => teams[9];
+
+    %tr
+      %td.center
+        =render "bracket_cell", :team => teams[10];
+      %td.center{:rowspan=>"2"}
+        =render "bracket_cell", :team => teams[21];
+
+    %tr
+      %td.center
+        =render "bracket_cell", :team => teams[11];
+
+    %tr
+      %td.center
+        =render "bracket_cell", :team => teams[12];
+      %td.center{:rowspan=>"2"}
+        =render "bracket_cell", :team => teams[22];
+      %td.center{:rowspan=>"4"}
+        =render "bracket_cell", :team => teams[27];
+
+    %tr 
+      %td.center
+        =render "bracket_cell", :team => teams[13];
+
+    %tr
+      %td.center
+        =render "bracket_cell", :team => teams[14];
+      %td.center{:rowspan=>"2"}
+        =render "bracket_cell", :team => teams[23];
+
+    %tr
+      %td.center
+        =render "bracket_cell", :team => teams[15];

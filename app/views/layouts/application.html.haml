@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+%html
+%head
+  %title Testapp
+  = stylesheet_link_tag    "application", :media => "all"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+
+  :css
+    form label { 
+      display:inline
+    }
+%body
+.container
+
+  .row 
+    .eight.columns.centered
+      =render "shared/menu"
+      
+  .row 
+    .eight.columns.centered
+      -if notice
+        .alert-box.success= notice
+      -if alert
+        .alert-box.warning= alert 
+
+  .row
+    .eight.columns.centered
+      = yield

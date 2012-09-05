@@ -1,0 +1,32 @@
+%table
+  %tr
+    %th Draft  
+    %th Name
+    %th 
+    %th
+    %th Left
+    %th Low
+    %th FF
+    %th Chp
+    %th Pts
+    %th $
+    
+  - @user_teams.each do |user_team|
+    %tr
+      %td= user_team.draft_position
+      %td= link_to user_team.name, remaining_url
+      %td
+        = image_tag user_team.users.first.profile_image_url, width:"20px", height:"20px"
+        = user_team.users.first.name
+      %td
+        - if user_team.users.count >1
+          = image_tag user_team.users[1].profile_image_url, width:"20px", height:"20px"
+          = user_team.users[1].name 
+      %td= user_team.remaining > 0 ? user_team.remaining : "-"
+      %td= user_team.low_seed_money > 0 ? "X" : "-"
+      %td= user_team.ff_money > 0 ? "X" : "-"
+      %td= user_team.champ_money > 0 ? "X" : "-"
+      %td= user_team.pts  
+      %td= "$#{user_team.money}"    
+
+%br

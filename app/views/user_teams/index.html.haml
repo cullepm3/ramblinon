@@ -1,0 +1,27 @@
+%h1 Listing user_teams
+
+%table
+  %tr
+    %th 
+    %th Name
+    %th Year
+    %th
+    %th
+    %th
+    %th    
+
+    
+  - @user_teams.each do |user_team|
+    %tr
+      %td= user_team.draft_position
+      %td= link_to user_team.name, user_team
+      %td= user_team.year
+      %td= user_team.users.first.name
+      %td= user_team.users[1].name if user_team.users.count >1
+      
+      %td= link_to 'Edit', edit_user_team_path(user_team)
+      %td= link_to 'Destroy', user_team, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New User team', new_user_team_path

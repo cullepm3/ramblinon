@@ -1,0 +1,12 @@
+
+.row
+  .column.two= image_tag("http://placehold.it/50x50");
+  =@user.email
+  
+  -@user.user_teams.each do |user_team|
+    =user_team
+    
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path
+    

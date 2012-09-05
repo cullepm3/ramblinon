@@ -1,0 +1,18 @@
+= "#{@users.count} dungeoneers" 
+
+%table
+  %tr
+    %th 
+    %th Name
+    %th 
+    %th
+    %th
+    %th
+
+  - @users.each do |user|
+    %tr
+      %td= image_tag user.profile_image_url, {width:"50", height:"50"}
+      %td= link_to "#{user.first_name} #{user.last_name}", user_path(user.id)
+      %td= link_to "Edit", edit_user_path(user.id)  
+  
+  %br

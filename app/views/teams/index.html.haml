@@ -1,0 +1,30 @@
+%h1 Listing teams 
+
+%table
+  %tr
+    %th Region
+    %th Seed
+    %th School
+    %th Year
+    %th 
+    %th     
+    %th
+    %th
+
+  - @teams.each do |team|
+    %tr  
+      -eliminated= team.eliminated ? "eliminated" : ""
+      %td= team.region    
+      %td= team.seed
+      %td{class:"#{eliminated}"}= link_to team.school, edit_team_path(team)
+      %td{class:"#{eliminated}"}= team.user_team.name if team.user_team
+      %td= team.round_drafted
+      %td= team.draft_number
+      %td= team.wins
+
+      %td= link_to 'Edit', edit_team_path(team)
+      %td= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Team', new_team_path

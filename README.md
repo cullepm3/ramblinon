@@ -15,6 +15,8 @@ heroku pg:backups restore 'http://ramblinonpromotions.com/ramblinon_development.
 
 Heroku
 
+https://devcenter.heroku.com/articles/getting-started-with-rails3
+
 git push heroku master
 
 heroku open

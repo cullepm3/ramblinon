@@ -14,6 +14,9 @@ https://devcenter.heroku.com/articles/heroku-postgres-import-export
 heroku pg:backups restore 'http://ramblinonpromotions.com/ramblinon_development.dump' DATABASE_URL
 
 Heroku
+
 git push heroku master
+
 heroku open
+
 heroku run rake db:migrate
